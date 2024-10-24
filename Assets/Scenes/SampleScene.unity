@@ -284,6 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabFlecha: {fileID: 1276988545844050797, guid: 80a372a8c32b6bb4ca96bc132d6e63f2, type: 3}
+  prefabEnemigo: {fileID: 1053433537877321254, guid: 55300f46429dbe04eb8a1869fc42b561, type: 3}
+  tiempoGeneracion: 2
+  cantidadEnemigos: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
