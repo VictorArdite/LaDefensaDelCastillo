@@ -15,15 +15,27 @@ public class flecha : MonoBehaviour
 
     void Update()
     {
-
+        // Mueve la flecha hacia la derecha
         Vector2 posInicial = transform.position;
-        posInicial = posInicial + new Vector2(1, 0) * _vel * Time.deltaTime;
+        posInicial += new Vector2(1, 0) * _vel * Time.deltaTime;
         transform.position = posInicial;
 
-
+        // Destruye la flecha si sale de la pantalla
         if (transform.position.x > maxPantalla.x)
         {
             Destroy(gameObject);
+        }
+    }
+
+    // Detecta la colisión con otros objetos
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Verifica si colisionó con un enemigo
+        if (collision.CompareTag("Enemigo"))
+        {
+            // Destruye el enemigo y la flecha
+            Destroy(collision.gameObject); // Destruye al enemigo
+            Destroy(gameObject); // Destruye la flecha
         }
     }
 }
