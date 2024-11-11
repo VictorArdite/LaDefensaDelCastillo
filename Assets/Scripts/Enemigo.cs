@@ -32,17 +32,17 @@ public class Enemigo : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verifica si colisionó con el jugador
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
         {
+            // Encuentra el script de control de vidas y reduce una vida
+            ControlVidas controlVidas = collision.GetComponent<ControlVidas>();
+            if (controlVidas != null)
+            {
+                controlVidas.RestarVida();
+            }
+
             // Destruye al enemigo
             Destroy(gameObject);
-
-            // Destruye el jugador (si es necesario)
-            Destroy(collision.gameObject);
-
-            // Cargar la escena final
-            SceneManager.LoadScene("PantallaFinal"); // Reemplaza "PantallaFinal" por el nombre de tu escena final
         }
     }
 
