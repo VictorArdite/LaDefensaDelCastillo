@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ca15c6c579d898409eebec639c8a846
+guid: 492552165b1945142959950301dfadc5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tower_0
+      name: Sign_04_0
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 14
-        width: 357
-        height: 676
+        x: 6
+        y: 0
+        width: 116
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344b6e99cb368bb498bd0d6938666676
-      internalID: -1461946339
+      spriteID: 1d2ce8c1dec4eac458251bcb083271f6
+      internalID: 780359473
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tower_0: -1461946339
+      Sign_04_0: 780359473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
