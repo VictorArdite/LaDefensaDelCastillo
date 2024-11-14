@@ -25,7 +25,7 @@ public class Movimiento : MonoBehaviour
         minPantalla.y += 1.5f;
         maxPantalla.y -= 1.5f;
 
-        StartCoroutine(GenerarEnemigos()); // Iniciar la generación de enemigos
+        StartCoroutine(GenerarEnemigos()); // Iniciar la generaciï¿½n de enemigos
     }
 
     void Update()
@@ -70,7 +70,7 @@ public class Movimiento : MonoBehaviour
 
     private void InstanciarEnemigo()
     {
-        Vector2 posicionEnemigo = new Vector2(maxPantalla.x, Random.Range(minPantalla.y, maxPantalla.y)); // Posición inicial del enemigo
+        Vector2 posicionEnemigo = new Vector2(maxPantalla.x, Random.Range(minPantalla.y, maxPantalla.y)); // Posiciï¿½n inicial del enemigo
         Instantiate(prefabEnemigo, posicionEnemigo, Quaternion.identity); // Crear el enemigo
     }
 }
