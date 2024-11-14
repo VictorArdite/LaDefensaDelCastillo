@@ -4,7 +4,7 @@ using TMPro; // Necesario para TextMeshPro
 
 public class ControlVidas : MonoBehaviour
 {
-    public int vidas = 5; // Número inicial de vidas
+    public int vidas = 5; // Nï¿½mero inicial de vidas
     [SerializeField] private TMP_Text Vidas; // Referencia al texto de vidas en TextMeshPro
 
     private void Start()
