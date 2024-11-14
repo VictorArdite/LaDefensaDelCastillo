@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; // Necesario para cambiar de escena
+using System;
 
 public class Enemigo : MonoBehaviour
 {
-    public float velocidad = 5f; // Velocidad del enemigo al moverse hacia el jugador
+    public float velocidad = 2f; // Velocidad inicial del enemigo, se actualizará desde la clase Movimiento
     private Transform jugador; // Referencia al transform del jugador
+    public event Action OnEnemyDestroyed; // Evento para notificar cuando el enemigo es destruido
 
     void Start()
     {
@@ -26,24 +28,33 @@ public class Enemigo : MonoBehaviour
             // Calcula la dirección hacia el jugador
             Vector2 direccion = (jugador.position - transform.position).normalized;
 
-            // Mueve el enemigo en esa dirección
+            // Mueve el enemigo en esa dirección con la velocidad actual
             transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidad * Time.deltaTime);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
         {
-            // Encuentra el script de control de vidas y reduce una vida
             ControlVidas controlVidas = collision.GetComponent<ControlVidas>();
             if (controlVidas != null)
             {
-                controlVidas.RestarVida();
+                controlVidas.RestarVida(); // Resta una vida al jugador
             }
-
-            // Destruye al enemigo
-            Destroy(gameObject);
+            DestruirEnemigo();
+        }
+        else if (collision.CompareTag("Flecha")) // Si colisiona con una flecha
+        {
+            Destroy(collision.gameObject); // Destruye la flecha para que no siga en la escena
+            DestruirEnemigo();
         }
     }
 
+    private void DestruirEnemigo()
+    {
+        // Llama al evento de destrucción antes de destruir el enemigo
+        OnEnemyDestroyed?.Invoke();
+        Destroy(gameObject);
+    }
 }
