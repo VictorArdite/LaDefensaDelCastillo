@@ -35,12 +35,14 @@ public class Enemigo : MonoBehaviour
     {
         if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
         {
-            // Encuentra el script de control de vidas y reduce una vida
-            ControlVidas controlVidas = collision.GetComponent<ControlVidas>();
-            if (controlVidas != null)
+            // Obtén el script de OperacionMatematica y genera la operación
+            OperacionMatematica operacionMat = FindObjectOfType<OperacionMatematica>();
+            if (operacionMat != null)
             {
-                controlVidas.RestarVida();
+                operacionMat.GenerarOperacion();
             }
+
+
 
             // Destruye al enemigo
             Destroy(gameObject);
