@@ -14,7 +14,7 @@ public class Enemigo : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (jugador == null)
         {
-            Debug.LogWarning("No se encontrÛ al jugador con el tag 'Player'. Aseg˙rate de que el jugador tenga este tag.");
+            Debug.LogWarning("No se encontr√≥ al jugador con el tag 'Player'. Aseg√∫rate de que el jugador tenga este tag.");
         }
     }
 
@@ -23,27 +23,29 @@ public class Enemigo : MonoBehaviour
         // Mover el enemigo hacia el jugador solo si existe
         if (jugador != null)
         {
-            // Calcula la direcciÛn hacia el jugador
+            // Calcula la direcci√≥n hacia el jugador
             Vector2 direccion = (jugador.position - transform.position).normalized;
 
-            // Mueve el enemigo en esa direcciÛn
+            // Mueve el enemigo en esa direcci√≥n
             transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidad * Time.deltaTime);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
         {
-            // Encuentra el script de control de vidas y reduce una vida
-            ControlVidas controlVidas = collision.GetComponent<ControlVidas>();
-            if (controlVidas != null)
+            // Obt√©n el script de OperacionMatematica y genera la operaci√≥n
+            OperacionMatematica operacionMat = FindObjectOfType<OperacionMatematica>();
+            if (operacionMat != null)
             {
-                controlVidas.RestarVida();
+                operacionMat.GenerarOperacion();
             }
+
+
 
             // Destruye al enemigo
             Destroy(gameObject);
         }
     }
-
 }
