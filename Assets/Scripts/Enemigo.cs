@@ -6,7 +6,7 @@ using System;
 
 public class Enemigo : MonoBehaviour
 {
-    public float velocidad = 2f; // Velocidad inicial del enemigo, se actualizará desde la clase Movimiento
+    public float velocidad = 2f; // Velocidad inicial del enemigo, se actualizarï¿½ desde la clase Movimiento
     private Transform jugador; // Referencia al transform del jugador
     public event Action OnEnemyDestroyed; // Evento para notificar cuando el enemigo es destruido
 
@@ -16,7 +16,7 @@ public class Enemigo : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (jugador == null)
         {
-            Debug.LogWarning("No se encontró al jugador con el tag 'Player'. Asegúrate de que el jugador tenga este tag.");
+            Debug.LogWarning("No se encontrÃ³ al jugador con el tag 'Player'. AsegÃºrate de que el jugador tenga este tag.");
         }
     }
 
@@ -25,10 +25,10 @@ public class Enemigo : MonoBehaviour
         // Mover el enemigo hacia el jugador solo si existe
         if (jugador != null)
         {
-            // Calcula la dirección hacia el jugador
+            // Calcula la direcciÃ³n hacia el jugador
             Vector2 direccion = (jugador.position - transform.position).normalized;
 
-            // Mueve el enemigo en esa dirección con la velocidad actual
+            // Mueve el enemigo en esa direcciï¿½n con la velocidad actual
             transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidad * Time.deltaTime);
         }
     }
@@ -37,24 +37,22 @@ public class Enemigo : MonoBehaviour
     {
         if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
         {
-            ControlVidas controlVidas = collision.GetComponent<ControlVidas>();
-            if (controlVidas != null)
+            // ObtÃ©n el script de OperacionMatematica y genera la operaciÃ³n
+            OperacionMatematica operacionMat = FindObjectOfType<OperacionMatematica>();
+            if (operacionMat != null)
             {
-                controlVidas.RestarVida(); // Resta una vida al jugador
+                operacionMat.GenerarOperacion();
             }
-            DestruirEnemigo();
+
+
+
+            // Destruye al enemigo
+            Destroy(gameObject);
         }
         else if (collision.CompareTag("Flecha")) // Si colisiona con una flecha
         {
             Destroy(collision.gameObject); // Destruye la flecha para que no siga en la escena
             DestruirEnemigo();
         }
-    }
-
-    private void DestruirEnemigo()
-    {
-        // Llama al evento de destrucción antes de destruir el enemigo
-        OnEnemyDestroyed?.Invoke();
-        Destroy(gameObject);
     }
 }

@@ -57,7 +57,7 @@ void Update()
 
 private void MoverPers()
 {
-    // Lógica de movimiento del personaje
+    // Lï¿½gica de movimiento del personaje
     float direccioIndicadaX = Input.GetAxisRaw("Horizontal");
     float direccioIndicadaY = Input.GetAxisRaw("Vertical");
 
@@ -77,7 +77,7 @@ private void DisparaFlecha()
     {
         GameObject projectil = Instantiate(prefabFlecha);
         projectil.transform.position = transform.position;
-        projectil.tag = "Flecha"; // Asigna el tag dinámicamente a la flecha
+        projectil.tag = "Flecha"; // Asigna el tag dinï¿½micamente a la flecha
     }
 }
 

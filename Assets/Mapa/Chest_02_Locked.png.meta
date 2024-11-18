@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ca15c6c579d898409eebec639c8a846
+guid: 9af8eda7f9dc6554eb97cb019baf7916
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tower_0
+      name: Chest_02_Locked_0
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 14
-        width: 357
-        height: 676
+        x: 6
+        y: 7
+        width: 105
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344b6e99cb368bb498bd0d6938666676
-      internalID: -1461946339
+      spriteID: fb3f12414b6c3704faeaf1dbb1056c38
+      internalID: 1868063359
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tower_0: -1461946339
+      Chest_02_Locked_0: 1868063359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

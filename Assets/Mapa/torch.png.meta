@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ca15c6c579d898409eebec639c8a846
+guid: 0860da1fbcf80a54bbdeb352df4ba261
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tower_0
+      name: torch_0
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 14
-        width: 357
-        height: 676
+        x: 3
+        y: 1
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344b6e99cb368bb498bd0d6938666676
-      internalID: -1461946339
+      spriteID: 2f79b6b7fdb1f66429bd8ae64823eeb2
+      internalID: 1540506787
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tower_0: -1461946339
+      torch_0: 1540506787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
