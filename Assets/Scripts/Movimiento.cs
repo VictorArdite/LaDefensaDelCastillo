@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Movimiento : MonoBehaviour
+public class Movimiento : MonoBehaviour {
  private Rigidbody2D Rigidbody2D;
 private float Horizontal;
 private float _vel;

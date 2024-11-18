@@ -52,7 +52,7 @@ public class Enemigo : MonoBehaviour
         else if (collision.CompareTag("Flecha")) // Si colisiona con una flecha
         {
             Destroy(collision.gameObject); // Destruye la flecha para que no siga en la escena
-            DestruirEnemigo();
+            Destroy(gameObject);
         }
     }
 }
