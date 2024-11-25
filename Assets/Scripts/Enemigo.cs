@@ -6,7 +6,7 @@ using System;
 
 public class Enemigo : MonoBehaviour
 {
-    public float velocidad = 2f; // Velocidad inicial del enemigo, se actualizar� desde la clase Movimiento
+    public float velocidad = 2f; // Velocidad inicial del enemigo, se actualizará desde la clase Movimiento
     private Transform jugador; // Referencia al transform del jugador
     public event Action OnEnemyDestroyed; // Evento para notificar cuando el enemigo es destruido
 
@@ -28,7 +28,7 @@ public class Enemigo : MonoBehaviour
             // Calcula la dirección hacia el jugador
             Vector2 direccion = (jugador.position - transform.position).normalized;
 
-            // Mueve el enemigo en esa direcci�n con la velocidad actual
+            // Mueve el enemigo en esa dirección con la velocidad actual
             transform.position = Vector2.MoveTowards(transform.position, jugador.position, velocidad * Time.deltaTime);
         }
     }
@@ -44,15 +44,15 @@ public class Enemigo : MonoBehaviour
                 operacionMat.GenerarOperacion();
             }
 
-
-
             // Destruye al enemigo
             Destroy(gameObject);
+            OnEnemyDestroyed?.Invoke(); // Llamar al evento para indicar que el enemigo fue destruido
         }
         else if (collision.CompareTag("Flecha")) // Si colisiona con una flecha
         {
             Destroy(collision.gameObject); // Destruye la flecha para que no siga en la escena
             Destroy(gameObject);
+            OnEnemyDestroyed?.Invoke(); // Llamar al evento para indicar que el enemigo fue destruido
         }
     }
 }
