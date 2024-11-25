@@ -35,14 +35,6 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
-        _vel = 13f;
-        minPantalla = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        maxPantalla = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-        minPantalla.x += 1.5f;
-        maxPantalla.x -= 1.5f;
-        minPantalla.y += 1.5f;
-        maxPantalla.y -= 1.5f;
-
         MoverPers();
 
         DisparaFlecha();
