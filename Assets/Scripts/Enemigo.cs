@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necesario para cambiar de escena
 using System;
 
 public class Enemigo : MonoBehaviour
@@ -35,24 +34,34 @@ public class Enemigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) // Verifica si colisiona con el jugador
+        if (collision.CompareTag("Player")) // Colisión con el jugador
         {
-            // Obtén el script de OperacionMatematica y genera la operación
+            Debug.Log("Colisión con el jugador detectada."); // Verifica que este mensaje aparezca
+
             OperacionMatematica operacionMat = FindObjectOfType<OperacionMatematica>();
             if (operacionMat != null)
             {
+                Debug.Log("Llamando a GenerarOperacion...");
                 operacionMat.GenerarOperacion();
+            }
+            else
+            {
+                Debug.LogError("No se encontró el script OperacionMatematica en la escena. Verifica que esté asignado correctamente.");
             }
 
             // Destruye al enemigo
             Destroy(gameObject);
             OnEnemyDestroyed?.Invoke(); // Llamar al evento para indicar que el enemigo fue destruido
         }
-        else if (collision.CompareTag("Flecha")) // Si colisiona con una flecha
+        else if (collision.CompareTag("Flecha")) // Colisión con flecha
         {
             Destroy(collision.gameObject); // Destruye la flecha para que no siga en la escena
             Destroy(gameObject);
             OnEnemyDestroyed?.Invoke(); // Llamar al evento para indicar que el enemigo fue destruido
+        }
+        else
+        {
+            Debug.Log($"Colisión con un objeto de tag: {collision.tag}");
         }
     }
 }
