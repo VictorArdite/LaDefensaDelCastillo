@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour
 {
-  
     private Rigidbody2D Rigidbody2D;
     private float Horizontal;
     private float _vel;
@@ -18,6 +17,9 @@ public class Movimiento : MonoBehaviour
     private float tiempoEntreEnemigos = 0.5f;
     private float velocidadEnemigos = 2f; // Velocidad base de los enemigos
     private bool generandoEnemigos = false;
+
+    [SerializeField] private float tiempoRecarga = 0.3f; // Tiempo mínimo entre disparos
+    private float ultimoDisparo = 0f; // Momento del último disparo
 
     void Start()
     {
@@ -36,9 +38,7 @@ public class Movimiento : MonoBehaviour
     void Update()
     {
         MoverPers();
-
         DisparaFlecha();
-
     }
 
     private void MoverPers()
@@ -58,8 +58,10 @@ public class Movimiento : MonoBehaviour
 
     private void DisparaFlecha()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Verificar si el jugador puede disparar basándose en el tiempo de recarga
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= ultimoDisparo + tiempoRecarga)
         {
+            ultimoDisparo = Time.time; // Actualizar el tiempo del último disparo
             GameObject projectil = Instantiate(prefabFlecha);
             projectil.transform.position = transform.position;
             projectil.tag = "Flecha";
