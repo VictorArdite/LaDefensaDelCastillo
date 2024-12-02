@@ -1,31 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; // Necesario para TextMeshPro
+using System.Collections.Generic;
 
 public class ControlVidas : MonoBehaviour
 {
-    public int vidas = 5; // N�mero inicial de vidas
-    [SerializeField] private TMP_Text Vidas; // Referencia al texto de vidas en TextMeshPro
+    public List<GameObject> corazones; // Lista de imágenes de corazones (asignadas desde el Inspector)
 
     private void Start()
     {
-        ActualizarTextoVidas(); // Inicializa el texto de vidas en pantalla
+        // Verifica que la lista de corazones esté configurada
+        if (corazones == null || corazones.Count == 0)
+        {
+            Debug.LogError("No se asignaron corazones en el Inspector.");
+        }
     }
 
     public void RestarVida()
     {
-        vidas--; // Reduce una vida
-        ActualizarTextoVidas(); // Actualiza el texto en pantalla
-
-        // Verifica si las vidas han llegado a cero
-        if (vidas <= 0)
+        if (corazones.Count > 0)
         {
-            SceneManager.LoadScene("PantallaFinal"); // Cambia "PantallaFinal" por el nombre de tu escena final
+            // Obtén el último corazón de la lista
+            GameObject corazon = corazones[corazones.Count - 1];
+            corazones.RemoveAt(corazones.Count - 1); // Remuévelo de la lista
+            corazon.SetActive(false); // Oculta el corazón (en lugar de destruirlo)
         }
-    }
 
-    private void ActualizarTextoVidas()
-    {
-        Vidas.text = "Vidas: " + vidas; // Actualiza el texto con las vidas actuales
+        // Si no quedan corazones, cambia a la pantalla final
+        if (corazones.Count == 0)
+        {
+            SceneManager.LoadScene("PantallaFinal"); // Cambia "PantallaFinal" por el nombre correcto de tu escena
+        }
     }
 }
