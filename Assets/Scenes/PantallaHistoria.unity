@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 217.4, y: -34.637}
+  m_AnchoredPosition: {x: 217.4, y: -34.63701}
   m_SizeDelta: {x: -251.833, y: -69.273}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321776819
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Siguiente
+  m_text: "Seg\xFCent"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.49062496, y: 0.18386425}
   m_AnchorMax: {x: 0.77989596, y: 0.48576677}
-  m_AnchoredPosition: {x: 270.46, y: -207.92}
+  m_AnchoredPosition: {x: 270.46002, y: -207.91998}
   m_SizeDelta: {x: -242.44, y: -206.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180290653
@@ -684,19 +684,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "En un lejano reino, viv\xEDa un valiente caballero llamado Sir Pedro.
-    Era conocido por su noble coraz\xF3n y porque era el \xFAltimo de su linaje.
-    Un d\xEDa, llegaron noticias alarmantes: \xA1vikingos feroces se acercaban por
-    el mar, dispuestos a invadir el castillo!\r\nEl rey convoc\xF3 a sus caballeros,
-    y Sir Pedro fue el primero en ofrecerse para defender la tierra.\r\nCuando los
-    vikingos llegaron, rugieron con fuerza, pero Sir Pedro no se dej\xF3 intimidar.
-    Con su arco y su mirada fija, estaba decidido a proteger su hogar.\r\nLa batalla
-    fue feroz. Los vikingos, con sus enormes hachas y escudos, parec\xEDan invencibles,
-    pero el coraje y la astucia de Sir Pedro eran a\xFAn mayores. Luch\xF3 con valent\xEDa,
-    esquivando los golpes y lanzando poderosos ataques.\r\nAhora, el combate est\xE1
-    en su momento decisivo. Sir Pedro est\xE1 al frente, pero la victoria a\xFAn
-    no est\xE1 asegurada. \xA1Ayuda a Sir Pedro a defender su reino, y juntos vencereis
-    a los invasores vikingos!\r\n"
+  m_text: "En un regne lluny\xE0, vivia un valent cavaller anomenat Sir Pere. Era
+    conegut pel seu noble cor i perqu\xE8 era l\u2019\xFAltim del seu llinatge. Un
+    dia, van arribar not\xEDcies alarmants: uns v\xEDkings ferotges s\u2019apropaven
+    per mar, disposats a envair el castell!\nEl rei va convocar els seus cavallers,
+    i Sir Pere va ser el primer a oferir-se per defensar la terra.\nQuan els v\xEDkings
+    van arribar, van rugir amb for\xE7a, per\xF2 Sir Pere no es va deixar intimidar.
+    Amb el seu arc i la mirada fixa, estava decidit a protegir la seva llar.\nLa
+    batalla va ser ferotge. Els v\xEDkings, amb les seves enormes destrals i escuts,
+    semblaven invencibles, per\xF2 el coratge i l\u2019ast\xFAcia de Sir Pere eren
+    encara m\xE9s grans. Va lluitar amb valentia, esquivant els cops i llan\xE7ant
+    atacs poderosos.\nAra, el combat est\xE0 en el seu moment decisiu. Sir Pere \xE9s
+    al capdavant, per\xF2 la vict\xF2ria encara no est\xE0 assegurada. Ajuda Sir
+    Pere a defensar el seu regne, i junts vencereu els invasors v\xEDkings!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
