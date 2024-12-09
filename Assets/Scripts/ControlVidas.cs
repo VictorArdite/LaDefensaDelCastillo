@@ -8,12 +8,13 @@ public class ControlVidas : MonoBehaviour
 
     private void Start()
     {
-        // Verifica que la lista de corazones esté configurada
         if (corazones == null || corazones.Count == 0)
         {
-            Debug.LogError("No se asignaron corazones en el Inspector.");
+            Debug.LogError("No se asignaron corazones en el Inspector. Inicializando automáticamente para pruebas.");
+            corazones = new List<GameObject>(); // Inicializa la lista vacía para evitar errores
         }
     }
+
 
     public void RestarVida()
     {
