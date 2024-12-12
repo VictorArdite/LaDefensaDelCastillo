@@ -45,7 +45,22 @@ public class Enemigo : MonoBehaviour
         if (collision.CompareTag("Flecha")) // Colisión con flecha
         {
             Destroy(collision.gameObject); // Destruye la flecha
-            Destroy(gameObject);
+            Destroy(gameObject); // Destruye el enemigo
+            OnEnemyDestroyed?.Invoke(); // Notifica que el enemigo fue destruido
+        }
+        else if (collision.CompareTag("Player")) // Colisión con jugador
+        {
+            OperacionMatematica operacion = FindObjectOfType<OperacionMatematica>();
+            if (operacion != null)
+            {
+                operacion.GenerarOperacion(); // Genera la operación matemática
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró el script OperacionMatematica en la escena.");
+            }
+
+            Destroy(gameObject); // Destruye el enemigo tras la colisión
             OnEnemyDestroyed?.Invoke(); // Notifica que el enemigo fue destruido
         }
         else
@@ -53,4 +68,6 @@ public class Enemigo : MonoBehaviour
             Debug.Log($"Colisión con un objeto de tag: {collision.tag}");
         }
     }
+
+
 }
