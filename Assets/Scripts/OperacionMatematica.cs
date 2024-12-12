@@ -85,16 +85,22 @@ public class OperacionMatematica : MonoBehaviour
 
     public void VerificarRespuesta()
     {
+        if (!panel.activeSelf)
+        {
+            Debug.LogWarning("El panel no está activo. Evitando verificación de respuesta.");
+            return;
+        }
+
         Debug.Log("Verificando respuesta del jugador...");
-        
+
         if (int.TryParse(campoRespuesta.text.Trim(), out int respuestaUsuario))
         {
             Debug.Log($"Respuesta ingresada: {respuestaUsuario}, Respuesta correcta: {resultadoCorrecto}");
-            
+
             if (respuestaUsuario == resultadoCorrecto)
             {
                 Debug.Log("Respuesta correcta");
-                // Aquí puedes agregar lógica para recompensar al jugador
+                // Lógica adicional si es necesario
             }
             else
             {
@@ -102,7 +108,7 @@ public class OperacionMatematica : MonoBehaviour
                 ControlVidas controlVidas = FindObjectOfType<ControlVidas>();
                 if (controlVidas != null)
                 {
-                    controlVidas.RestarVida(); // Restar una vida al jugador
+                    controlVidas.RestarVida();
                 }
                 else
                 {
@@ -112,14 +118,15 @@ public class OperacionMatematica : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("El usuario ingresó un valor no válido. No se puede procesar.");
+            Debug.LogWarning("El usuario ingresó un valor no válido.");
         }
 
-        // Oculta el panel y reanuda el juego
+        // Ocultar el panel y reanudar el juego
         if (panel != null)
         {
-            panel.SetActive(false); // Ocultar el panel
+            panel.SetActive(false);
         }
-        Time.timeScale = 1f; // Reanuda el juego
+        Time.timeScale = 1f;
     }
+
 }
