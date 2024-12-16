@@ -105,20 +105,13 @@ public class OperacionMatematica : MonoBehaviour
             else
             {
                 Debug.Log("Respuesta incorrecta");
-                ControlVidas controlVidas = FindObjectOfType<ControlVidas>();
-                if (controlVidas != null)
-                {
-                    controlVidas.RestarVida();
-                }
-                else
-                {
-                    Debug.LogWarning("No se encontró el script ControlVidas. Asegúrate de que esté en la escena.");
-                }
+                RestarVida();
             }
         }
         else
         {
             Debug.LogWarning("El usuario ingresó un valor no válido.");
+            RestarVida(); // Si la entrada no es válida, se resta una vida
         }
 
         // Ocultar el panel y reanudar el juego
@@ -128,5 +121,20 @@ public class OperacionMatematica : MonoBehaviour
         }
         Time.timeScale = 1f;
     }
+
+    // Método para restar vida al jugador
+    private void RestarVida()
+    {
+        ControlVidas controlVidas = FindObjectOfType<ControlVidas>();
+        if (controlVidas != null)
+        {
+            controlVidas.RestarVida();
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró el script ControlVidas. Asegúrate de que esté en la escena.");
+        }
+    }
+
 
 }
